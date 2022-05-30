@@ -15,9 +15,10 @@ pip install -r requirements.txt
 
 1. Conectar su aplicacion heroku con github
 
+![alt text](https://github.com/larrygf02/flask-sqlite-demo/blob/master/public/heroku-github.PNG?raw=true)
 
 
-1. Procfile
+2. Procfile
 
 ```
 web: gunicorn app:app
