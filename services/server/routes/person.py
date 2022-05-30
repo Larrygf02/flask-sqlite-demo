@@ -1,6 +1,7 @@
 import json
 from flask import Blueprint, jsonify, request
 from services.db import get_db
+from services.db.models import PersonManager
 
 router = Blueprint('v1', __name__, url_prefix='/v1')
 
@@ -14,17 +15,8 @@ def get_person():
 @router.route('/person', methods=['POST'])
 def create_person():
     body = request.get_json()
-    print(body)
-    first_name = body['first_name']
-    last_name = body['last_name']
-    email = body['email']
-    dni = body['dni']
-    data = [first_name, last_name, email, dni]
-    db = get_db()
-    cursor = db.cursor()
-    cursor.execute("INSERT INTO person (first_name, last_name, email, dni) values(?, ?, ?, ?)", data)
-    db.commit()
-    db.close()
+    manager = PersonManager()
+    manager.create_person(body)
     return jsonify({"success": True})
 
 @router.route('/persons', methods=['GET'])

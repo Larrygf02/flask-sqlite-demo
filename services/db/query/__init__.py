@@ -1,0 +1,1 @@
+from .insert import run as insert
