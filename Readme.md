@@ -10,6 +10,7 @@ Luego debemos seguir los siguientes pasos
 ```
 virtualenv -p python3 .venv
 pip install -r requirements.txt
+python app.py
 ```
 ## Despliegue en heroku
 
