@@ -19,7 +19,7 @@ def create_person():
 
 @router.route('/persons', methods=['GET'])
 def get_persons():
-    manager = PersonManager()
+    manager = PersonManager() #test
     persons = manager.get_persons()
     return jsonify({"result": persons})
 
