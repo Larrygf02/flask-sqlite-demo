@@ -1,5 +1,5 @@
 from utils import valid_payload, get_fields
-from services.db.query import insert, select
+from services.db.query import insert, select, delete
 
 class PersonManager():
     def __init__(self):
@@ -20,3 +20,7 @@ class PersonManager():
         query = f"SELECT * from person where person_id = {person_id}"
         result = select(query)
         return result[0]
+
+    def delete_person(self, person_id):
+        query = f"Delete from person where person_id = {person_id}"
+        delete(query)

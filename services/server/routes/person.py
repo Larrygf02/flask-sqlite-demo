@@ -1,4 +1,3 @@
-import json
 from flask import Blueprint, jsonify, request
 from services.db import get_db
 from services.db.models import PersonManager
@@ -23,3 +22,9 @@ def get_persons():
     manager = PersonManager()
     persons = manager.get_persons()
     return jsonify({"result": persons})
+
+@router.route('/person/<person_id>', methods=["DELETE"])
+def delete_person(person_id):
+    manager = PersonManager()
+    manager.delete_person(person_id)
+    return jsonify({"success": True})

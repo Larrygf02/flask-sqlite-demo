@@ -2,7 +2,8 @@ import sqlite3
 import os
 from flask import g
 
-DATABASE = 'persons.db'
+#DATABASE = 'test.db' #use dev environment
+DATABASE = 'persons.db' #use prod environment
 path_sql = os.path.join("resources", "db.sql")
 
 def get_db():
