@@ -15,3 +15,8 @@ class PersonManager():
         query = "SELECT * from person"
         result = select(query)
         return result
+
+    def get_one_person(self, person_id):
+        query = f"SELECT * from person where person_id = {person_id}"
+        result = select(query)
+        return result[0]
