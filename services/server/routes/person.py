@@ -21,15 +21,6 @@ def create_person():
 
 @router.route('/persons', methods=['GET'])
 def get_persons():
-    db = get_db()
-    cursor = db.cursor()
-    result = cursor.execute("select * from person").fetchall()
-    columns = [description[0] for description in cursor.description]
-    persons = []
-    for item in result:
-        person = dict()
-        for key, value in zip(columns, list(item)):
-            person[key] = value
-        persons.append(person)
-    db.close()
+    manager = PersonManager()
+    persons = manager.get_persons()
     return jsonify({"result": persons})
