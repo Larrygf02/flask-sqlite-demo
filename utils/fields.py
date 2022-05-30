@@ -10,3 +10,9 @@ def valid_payload(payload, fields):
         if field not in payload:
             raise Exception("Invalid payload")
     return True
+
+def valid_update(payload, fields):
+    for key in payload.keys():
+        if key not in fields:
+            raise Exception(f"Invalid item {key}")
+    return True

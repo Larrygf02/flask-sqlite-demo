@@ -28,3 +28,10 @@ def delete_person(person_id):
     manager = PersonManager()
     manager.delete_person(person_id)
     return jsonify({"success": True})
+
+@router.route('/person/<person_id>', methods=["PATCH"])
+def update_person(person_id):
+    body = request.get_json()
+    manager = PersonManager()
+    manager.update_person(body, person_id)
+    return jsonify({"success": True})
