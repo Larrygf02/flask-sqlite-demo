@@ -13,6 +13,10 @@ pip install -r requirements.txt
 ```
 ## Despliegue en heroku
 
+1. Conectar su aplicacion heroku con github
+
+
+
 1. Procfile
 
 ```
